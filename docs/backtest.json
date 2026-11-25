@@ -1,0 +1,25 @@
+{
+ "groups": [
+  {
+   "label": "Weakest third",
+   "n": 165,
+   "mean": 9.949173708320233
+  },
+  {
+   "label": "Middle",
+   "n": 51,
+   "mean": 0.07980912472748013
+  },
+  {
+   "label": "Strongest third",
+   "n": 133,
+   "mean": 5.35600587282059
+  }
+ ],
+ "summary": "No, not in this sample. Using the same rules on every 10-K since about 2014, the strongest third by score returned -4.6 points a year versus the weakest third, relative to the S&P 500 (95% bootstrap interval -14.6 to +4.7). Correlation of score with next-year excess return: -0.10 over 349 filings.",
+ "notes": [
+  "Return is measured from two days after the 10-K filing date for 12 months, dividends included, against SPY.",
+  "The same 37 companies are used throughout, and they are big survivors, so absolute returns are flattered. Observations overlap in time and move with the market, so the interval is optimistic.",
+  "Treat this as a sanity check on the rules, not as evidence you could trade on."
+ ]
+}

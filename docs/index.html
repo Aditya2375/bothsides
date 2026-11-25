@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>Both Sides: the bull and bear case, straight from SEC filings</title>
+<meta name="description" content="Pick a company. Get the bull case and the bear case built by fixed rules from its SEC 10-K numbers, each point with its source filing. No AI, no price targets.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231d3b2f'/%3E%3Cpath d='M16 5v22M7 9h18' stroke='%23e8dcc0' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top"><a class="mark" href="#top">Both Sides</a><nav aria-label="Sections"><a href="#case">The case</a><a href="#rules">Rules</a><a href="#test">Does it work?</a></nav></header>
+<main id="top">
+<section class="hero">
+<p class="tag">SEC FILINGS, FIXED RULES</p>
+<h1>Every stock has two stories.<br>Read both from the filing.</h1>
+<p class="lede">Pick a company. Both Sides applies 16 plain rules to its 10-K numbers and lists what supports the bull case and what supports the bear case. Each point shows the figures and links to the filing. Nothing is written by a language model.</p>
+<div class="pick"><label for="co">Company</label><select id="co"></select></div>
+</section>
+<section id="case" class="block" aria-live="polite">
+<div class="head"><h2 id="coName"></h2><p id="coMeta" class="meta"></p></div>
+<div class="scale" id="scale" role="img" aria-label="Count of bull points against bear points"></div>
+<div class="cols">
+<div class="col bull"><h3>For <small id="nBull"></small></h3><ol id="bull"></ol></div>
+<div class="col bear"><h3>Against <small id="nBear"></small></h3><ol id="bear"></ol></div>
+</div>
+<p id="nc" class="fine"></p>
+<h3 class="tt">The numbers behind it</h3>
+<div class="tablewrap"><table id="tbl"></table></div>
+</section>
+<section id="rules" class="block">
+<h2>The 16 rules</h2>
+<p class="fine">All thresholds are fixed in <code>js/rules.js</code> and were chosen before looking at any returns. A rule only fires when its inputs exist in the filing. Banks are left out because current ratio, gross margin and debt do not mean the same thing for them.</p>
+<ul id="rulelist" class="rules"></ul>
+</section>
+<section id="test" class="block">
+<h2>Does the score predict anything?</h2>
+<div id="bt"></div>
+</section>
+<section class="block"><h2>Limits</h2>
+<ul class="limits">
+<li>Not advice, not a price target, and not a prediction. Rules describe the last filed year.</li>
+<li>37 large US companies, 10-K data only. No quarterly numbers, no guidance, no price or valuation.</li>
+<li>XBRL tags differ by company, so some figures are missing. A rule stays silent when its inputs are missing.</li>
+<li>Cutoffs like "gross margin up one point" are judgment calls and can be argued with.</li>
+</ul>
+<p class="fine">Data: SEC EDGAR companyfacts (public domain). Code: MIT. Fonts: Playfair Display and IBM Plex Mono, SIL OFL.</p>
+</section>
+</main>
+<script src="js/rules.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
